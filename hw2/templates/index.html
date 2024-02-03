@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h2>Quotes Book</h2>
+
+    <h3>Notate a quote <a href="{{ url_for('quotes') }}">here</a>!</h3>
+    <h3>Notated Quotes</h3>
+    {% for entry in entries %}
+    <p class=entry id={{ entry.rowid }}>
+    "{{ entry.quote }}"<br>
+     -- {{ entry.name }} ({{ entry.year }})
+    </p>
+    {% endfor %}
+
+{% endblock %}
