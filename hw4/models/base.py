@@ -1,8 +1,5 @@
-from abc import ABC, abstractmethod
+class BaseModel:
 
-class BaseModel(ABC):
-
-    @abstractmethod
     def create(self, quote, name, year):
         '''
         Creates new entry and inserts into database.
@@ -14,7 +11,6 @@ class BaseModel(ABC):
         '''
         pass
 
-    @abstractmethod
     def read():
         '''
         Gets all entries from database
@@ -22,7 +18,6 @@ class BaseModel(ABC):
         '''
         pass
 
-    @abstractmethod
     def update(self, id, quote, name, year):
         '''
         Updates entry in database
@@ -35,7 +30,6 @@ class BaseModel(ABC):
         '''
         pass
     
-    @abstractmethod
     def delete(self, id):
         """
         Deletes entry from database

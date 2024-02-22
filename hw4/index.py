@@ -9,7 +9,7 @@ class Index(MethodView):
         self.template = 'index.html'
 
     def get(self):
-        keys = ['rowid', 'quote', 'name', 'year']
+        keys = [ 'quote', 'name', 'year']
         entries = [dict(zip(keys, value)) for value in self.model.read()]
         print(entries)
         return render_template(self.template, entries=entries)
