@@ -22,7 +22,7 @@ def from_datastore(entity):
 
 class QuotesModel(BaseModel):
     def __init__(self):
-        self.client = datastore.Client('cloud-Nguyen-jtn7')
+        self.client = datastore.Client('cloud-nguyen-jtn7')
 
     def read(self):
         query = self.client.query(kind = 'Quotes')
