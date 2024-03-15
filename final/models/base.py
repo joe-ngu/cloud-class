@@ -1,7 +1,5 @@
 class FoodsBaseModel:
-    '''
-    Base class for food model
-    '''
+    '''Base class for food model'''
     def create(self, name, quantity):
         '''
         Creates new food item and inserts into database.
