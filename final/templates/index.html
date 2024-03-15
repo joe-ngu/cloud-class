@@ -1,0 +1,14 @@
+{% extends "layout.html" %} {% block content %}
+<h2>Macro Tracker</h2>
+
+<h3>Add a food item <a href="{{ url_for('foods') }}">here</a>!</h3>
+<h3>Food Eaten</h3>
+{% for food in foods %}
+<p class="food_item">
+  "{{ food.name }}"<br />
+  Calories: {{ food.calories }}<br />
+  Fat: {{ food.fat }}<br />
+  Carbs: {{ food.carbs }}<br />
+  Protein: {{ food.protein }}<br />
+</p>
+{% endfor %} {% endblock %}

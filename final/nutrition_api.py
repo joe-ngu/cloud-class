@@ -11,6 +11,11 @@ app_id = os.getenv('APP_ID')
 base_url = 'https://api.edamam.com/api/'
 
 def get_nutrition(food_name):
+    '''
+    Gets nutrition for a food by name
+    :param food_name:
+    :return: dict of nutrition data (calories, fat, carbs, protein) by gram
+    '''
     url = base_url + 'nutrition-data'
     params = {
         'ingr': food_name,
