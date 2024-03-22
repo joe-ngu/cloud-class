@@ -6,3 +6,9 @@ google-cloud-datastore
 
 # Python WSGI HTTP server (connects web servers such as nginx to app)
 gunicorn
+
+# Package to handle environment variables
+python-dotenv
+
+# Package to handle http requests to api
+requests

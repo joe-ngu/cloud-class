@@ -29,10 +29,9 @@ class FoodsBaseModel:
         '''
         pass
     
-    def delete(self, id):
+    def delete(self):
         """
-        Deletes food item from database
-        :param id: UUID
+        Deletes all food item from database
         :return: None
         """
         pass

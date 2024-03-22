@@ -26,10 +26,10 @@ class Foods(MethodView):
         carbs_per_gram = nutrition_info['carbs_per_gram']
         protein_per_gram = nutrition_info['protein_per_gram']
 
-        total_calories = quantity * calories_per_gram
-        total_fat = quantity * fat_per_gram
-        total_carbs = quantity * carbs_per_gram
-        total_protein = quantity * protein_per_gram
+        total_calories = round(quantity * calories_per_gram, 2)
+        total_fat = round(quantity * fat_per_gram, 2)
+        total_carbs = round(quantity * carbs_per_gram, 2)
+        total_protein = round(quantity * protein_per_gram, 2)
 
         # create food item for datastore
         self.model.create(
@@ -44,9 +44,3 @@ class Foods(MethodView):
 
     def get(self):
         return render_template(self.template) 
-
-    def put(self):
-        pass
-
-    def delete():
-        pass

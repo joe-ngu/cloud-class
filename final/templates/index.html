@@ -21,10 +21,14 @@
 <p>Total Fat: {{ macro.total_fat }}g</p>
 <p>Total Carbs: {{ macro.total_carbs }}g</p>
 <p>Total Protein: {{ macro.total_protein }}g</p>
+<br/>
+<form method="post" action="{{ url_for('index') }}">
+  <input type="submit" value="Clear All" />
+</form>
 
 <h3>Foods Eaten</h3>
 {% for food in foods %}
-<p class="food_item" id="{{ food.id }}"">
+<p class="food_item">
   {{ food.name }}<br />
   ---------------------------- <br />
   Calories: {{ food.calories }}<br />

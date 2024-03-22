@@ -18,7 +18,7 @@ def from_datastore(entity):
         return None
     if isinstance(entity, list):
         entity = entity.pop()
-    return [entity['quote'],entity['name'],entity['year']]
+    return [entity['name'],entity['calories'],entity['fat'],entity['carbs'],entity['protein'],entity['quantity']]
 
 class FoodsModel(FoodsBaseModel):
     def __init__(self):
@@ -29,11 +29,11 @@ class FoodsModel(FoodsBaseModel):
         entities = list(map(from_datastore, query.fetch()))
         return entities
 
-    def create(self, food_name, calories, fat, carbs, protein, quantity):
+    def create(self, name, calories, fat, carbs, protein, quantity):
         key = self.client.key('Foods')
         rev = datastore.Entity(key)
         rev.update( {
-            'food_name': food_name,
+            'name': name,
             'calories': calories,
             'fat': fat,
             'carbs': carbs,
@@ -42,3 +42,11 @@ class FoodsModel(FoodsBaseModel):
         })
         self.client.put(rev)
         return True
+
+    def delete(self):
+        query = self.client.query(kind = 'Foods')
+        entities = list(query.fetch())
+        for entity in entities:
+            self.client.delete(entity.key)
+
+
