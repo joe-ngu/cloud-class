@@ -1,9 +1,13 @@
 class FoodsBaseModel:
     '''Base class for food model'''
-    def create(self, name, quantity):
+    def create(self, name, calories, fat, carbs, protein, quantity):
         '''
         Creates new food item and inserts into database.
         :param name: String
+        :param calories: Float
+        :param fat: Float
+        :param carbs: Float
+        :param protein: Float
         :param quantity: Float
         :return: None
         '''

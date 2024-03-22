@@ -1,12 +1,12 @@
 {% extends "layout.html" %} {% block content %}
-<h2>Notate Quotations</h2>
+<h2>Food tracker</h2>
+<p>Add a new food to your tracker.</p>
 <form action="{{ url_for('foods') }}" method="post">
-  <p class="heading">
-    Quote:
-    <textarea row="20" col="100" name="quote"></textarea>
-  </p>
+  <p class="heading">Food</p>
   <p class="heading">Name: <input type="text" name="name" /></p>
-  <p class="heading">Year: <input type="text" name="year" /></p>
-  <p><input type="submit" value="Notate" /></p>
+  <p class="heading">Quantity (grams): <input type="text" name="quantity" /></p>
+  <p>
+    <input type="submit" value="Add Food" />
+  </p>
 </form>
 {% endblock %}

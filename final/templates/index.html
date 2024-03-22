@@ -2,13 +2,35 @@
 <h2>Macro Tracker</h2>
 
 <h3>Add a food item <a href="{{ url_for('foods') }}">here</a>!</h3>
-<h3>Food Eaten</h3>
+<h3>Macro Summary</h3>
+{% set macro = namespace(
+    total_calories = 0.0,
+    total_fat = 0.0,
+    total_carbs = 0.0,
+    total_protein = 0.0
+  ) 
+%} 
 {% for food in foods %}
-<p class="food_item">
-  "{{ food.name }}"<br />
+  {% set macro.total_calories = macro.total_calories + food.calories %} 
+  {% set macro.total_fat = macro.total_fat + food.fat %} 
+  {% set macro.total_carbs = macro.total_carbs + food.carbs %} 
+  {% set macro.total_protein = macro.total_protein + food.protein %}
+</p>
+{% endfor %}
+<p>Total Calories: {{ macro.total_calories }}</p>
+<p>Total Fat: {{ macro.total_fat }}g</p>
+<p>Total Carbs: {{ macro.total_carbs }}g</p>
+<p>Total Protein: {{ macro.total_protein }}g</p>
+
+<h3>Foods Eaten</h3>
+{% for food in foods %}
+<p class="food_item" id="{{ food.id }}"">
+  {{ food.name }}<br />
+  ---------------------------- <br />
   Calories: {{ food.calories }}<br />
-  Fat: {{ food.fat }}<br />
-  Carbs: {{ food.carbs }}<br />
-  Protein: {{ food.protein }}<br />
+  Fat: {{ food.fat }}g<br />
+  Carbs: {{ food.carbs }}g<br />
+  Protein: {{ food.protein }}g<br />
+  Quantity: {{ food.quantity }}g<br />
 </p>
 {% endfor %} {% endblock %}

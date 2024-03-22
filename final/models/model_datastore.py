@@ -1,4 +1,4 @@
-from .base import BaseModel
+from .base import FoodsBaseModel
 from google.cloud import datastore
 
 def from_datastore(entity):
@@ -9,7 +9,7 @@ def from_datastore(entity):
         [Entity{key: (kind, id), prop: val, ...}]
 
     This returns:
-        [ quote, name, year ]
+        [ name, calories, fat, carbs, protein, quantity ]
     where quote and name are Python strings
     and where year is a Python integer
     """
@@ -20,7 +20,7 @@ def from_datastore(entity):
         entity = entity.pop()
     return [entity['quote'],entity['name'],entity['year']]
 
-class FoodsModel(BaseModel):
+class FoodsModel(FoodsBaseModel):
     def __init__(self):
         self.client = datastore.Client('cloud-nguyen-jtn7')
 
@@ -30,7 +30,7 @@ class FoodsModel(BaseModel):
         return entities
 
     def create(self, food_name, calories, fat, carbs, protein, quantity):
-        key = self.client.key('Quotes')
+        key = self.client.key('Foods')
         rev = datastore.Entity(key)
         rev.update( {
             'food_name': food_name,

@@ -1,0 +1,42 @@
+body {
+  font-family: "Helvetica", sans-serif;
+  font-size: 20px;
+  color: #423629;
+}
+
+a,
+h1,
+h2 {
+  color: #4f5d2f;
+}
+
+form {
+  margin: 0.1em auto;
+  padding: 0.1em;
+  width: 400px;
+  border: 1px;
+}
+
+.heading {
+  font-weight: bold;
+}
+
+.base {
+  margin: 0.1em auto;
+  padding: 0.1em;
+  width: 504px;
+}
+
+.food-item {
+  margin-bottom: 2em;
+  padding-bottom: 2em;
+  border-bottom: 1px solid #cfd6ea;
+}
+
+input[type="text"] {
+  margin: 0.5em 0;
+  padding: 0.5em;
+  font-size: 12px;
+  color: #4f5d2f;
+  width: 200px;
+}
